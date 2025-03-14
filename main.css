@@ -1,205 +1,258 @@
 
-#main {
-    background-color: black;
-    width: 100%;
+:root {
+    --primary-bg: #000;
+    --text-light: #FFF;
+    --accent-red: #91282F;
+    --dark-red: #330002;
+    --border-color: #333;
 }
-body{
-    width: 100%;
-    margin: 0 auto;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    background: var(--primary-bg);
+    color: var(--text-light);
+}
 
-/*-----------------------------*/
-
-#header{
-    margin: 0px 0px 152px 0px;
-    width: 100%;
+img {
+    max-width: 100%;
     height: auto;
 }
-#header .menu-header{
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+}
+     
+#header {
+    padding: 1rem 0;
+}
+
+.menu-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.horizontal-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.horizontal-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 700;
+    transition: opacity 0.3s;
+}
+
+.btn-1 {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+.btn-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #91282F, #330002);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: -1;
+}
+.btn-1:hover {
+    color: var(--text-light);
+    border-color: #91282F;
+    box-shadow: 0 4px 15px rgba(145, 40, 47, 0.4);
+}
+
+.btn-1:hover::before {
+    transform: scaleX(1);
+}
+#container {
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.container-1a,
+.container-2a,
+.container-3a {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+.content-wrapper {
+    max-width: 500px;
+}
+
+.DBS {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.ULT {
+    font-size: 1.75rem;
+    font-style: italic;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 2px solid var(--text-light);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    background: transparent; 
+}
+
+.cta-btn.dark {
+    background: var(--primary-bg);
+}
+.cta-btn:hover {
+    background: var(--text-light);
+    color: var(--primary-bg);
+    transform: translateY(-2px);
+}
+#footer {
+    background: var(--text-light);
+    color: var(--primary-bg);
+    padding: 3rem 1.5rem;
+}
+.cta-btn.dark:hover {
+    background: var(--text-light);
+    color: var(--primary-bg);
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.card-footer-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.footer-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px; 
+    height: auto;
+}
+
+.footer-disclaimer {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+}
+
+.footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
-    width: 1278px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
 }
-#header .horizontal-menu{
-    font-family: "Inter", sans-serif;
+
+.legal-links {
     display: flex;
-    width: 478px;
-    height: 40px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    align-items: center;
+    gap: 1.5rem;
 }
-#header .menu li {
-    margin-right: 20px;
-}
-#header .menu a{
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 100%;
+
+.legal-links a {
+    color: var(--primary-bg);
     text-decoration: none;
 }
-#header .menu .btn-1{
-    border: 2px solid white;
-    padding: 10px 20px;
-    border-radius: 10px;
-}
-hr{
-    border: none;
-    height: 1px;
-    background-color: #333;
+
+@media (max-width: 768px) {
+    .menu-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .horizontal-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container-1a,
+    .container-2a,
+    .container-3a {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-son-3a {
+        order: -1;
+    }
+
+    .DBS {
+        font-size: 2rem;
+    }
+
+    .ULT {
+        font-size: 1.25rem;
+    }
+
+    .cta-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .legal-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
 
-/*-----------------------------*/
+@media (max-width: 480px) {
+    .horizontal-menu {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .btn-1 {
+        display: block;
+        margin: 0 auto;
+    }
 
-/*.container-1a,
-.div-container-2,
-.div-container-3 {
-    margin: 0 auto;
-}*/
-
-
-#container{
-    display: flex;
-    flex-direction: column;
-    width: 1276px;
-    height: auto;
-    margin: 0 auto;
+    .DBS {
+        font-size: 1.75rem;
+    }
 }
-#container .container-1a{
-    display: flex;
-    align-items: center;
-    width: 1276px;
-    height: 366px;
-    margin: 0px 0px 64px 0px;
-}
-#container .container-1a .card-son-1a{
-    width: 365px;
-    height: 230px;
-    color: #FFFFFF;
-}
-#container .container-1a .card-son-1a .Pai-Titulo-1a {
-    display: flex;
-    align-items: baseline;
-    margin: 0px 61px 0px 0px;
-    width: 365px;
-    height: 57px;
-    top: 68px;
-}
-#container .DBS{
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 46.2px;
-    letter-spacing: 1px;
-}
-#container .container-1a .ULT{
-    font-weight: 400;
-    font-size: 30px;
-    font-style: italic;
-    line-height: 46.2px;
-    letter-spacing: 1px;   
-}
-#container .container-1a .card-son-1a .Paragrafo-card-son-1a{
-    font-family: "Inter", sans-serif;
-    width: 350px;
-    height: 73px;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 24.2px;
-    letter-spacing: 1px;
-    margin: 24px 76px 24px 0px;
-}
-#container .container-1a .card-son-1a .Botão-card-son-1a {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;  
-    text-transform: uppercase;
-    margin-bottom: 68px;
-    border: 2px solid white;
-    padding: 16px 30px;
-    border-radius: 10px;
-    width: 25%;
-}
-#container .container-1a .card-son-1b{
-    width: 850px;
-    height: 366px;
-}
-#container .container-2a {
-    display: flex;
-    width: 1244px;
-    height: 364px;
-    margin: 0px 0px 64px 0px;
-}
-#container .container-2a .card-son-2a{
-    width: 562px;
-    height: 364px;
-}
-#container .container-2a .card-son-2b{
-    width: 636px;
-    height: 182px;
-    margin: 60px 0px 120px 46px;
-}
-#container .container-2a .card-son-2b .Paragrafo-card-son-2a {
-    font-family: "Inter", sans-serif;
-    font-weight: 300;
-    color: #FFFFFF;
-    font-size: 20px;
-    line-height: 24.2px;
-    letter-spacing: 1px;
-    width: 95%;
-    height: 97px;
-    margin-bottom: 33px;
-}
-#container .container-2a .card-son-2b .Botão-card-son-2a {
-    font-family: "Inter", sans-serif;
-    color: #FFFFFF;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;  
-    text-transform: uppercase;
-    margin-bottom: 68px;
-    border: 2px solid white;
-    padding: 16px 30px;
-    border-radius: 10px;
-    width: 15%;
-}
-#container .container-3a {   
-    width: 1296px;
-    height: 340px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 64px;
-}
-#container .container-3a .card-son-3a{
-    width: 426px;
-    height: 207px;
-}
-#conatiner .container-3a .card-son-3b{
-    width: 533px;
-    height: 280px;
-    margin: 44px 113px 16px 162px;
-}
-
-
-
-
-
-
-
-
-/*-----------------------------*/
-
-
-#footer{
-    background-color: #FFFFFF;
-    width: 100%;
-    height: 281px;
-} 
-
